@@ -17,9 +17,6 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
 
 ## to-do
 ```
-- make changes to the user?
-- make vim editor
-- vimrc
 - pyenv
   > get latest stable?
 - zsh
