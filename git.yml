@@ -13,7 +13,7 @@
   - name: copy gitconfig to user home dir
     become: no
     copy:
-      src: lib/gitconfig
+      src: files/gitconfig
       dest: ~/.gitconfig
       mode: '0664'
       backup: yes
