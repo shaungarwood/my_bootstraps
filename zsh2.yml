@@ -1,0 +1,11 @@
+---
+
+- name: blahblah
+  hosts: localhost
+  tasks:
+
+    - name: change user shell to zsh
+      become: yes
+      user:
+        name: vagrant
+        shell: /bin/bash

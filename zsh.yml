@@ -1,0 +1,34 @@
+---
+
+- name: set up zsh shell for user
+  hosts: localhost
+
+  vars_prompt:
+
+    - name: "my_password"
+      prompt: "Enter password"
+      private: yes
+      when: ansible_env['SHELL'] is not search("zsh")
+
+  tasks:
+
+    - name: install pexpect
+      pip:
+        name: pexpect
+      become: yes
+
+    - name: install zsh
+      become: yes
+      package:
+        name:
+          zsh
+        state:
+          present
+  
+    - name: change user shell to zsh
+      become: no
+      expect:
+        command: "chsh -s $(which zsh)"
+        responses:
+          (?i)password: "{{ my_password }}"
+      when: ansible_env['SHELL'] is not search("zsh")
