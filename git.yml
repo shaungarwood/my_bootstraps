@@ -1,6 +1,7 @@
 ---
 
-- hosts: localhost
+- name: setup git for user
+  hosts: localhost
   tasks:
 
   - name: ensure git is installed
@@ -12,7 +13,7 @@
   - name: copy gitconfig to user home dir
     become: no
     copy:
-      src: lib/vimrc
-      dest: ~/.vimrc
+      src: lib/gitconfig
+      dest: ~/.gitconfig
       mode: '0664'
       backup: yes
