@@ -1,0 +1,18 @@
+---
+
+- hosts: localhost
+  tasks:
+
+  - name: ensure git is installed
+    become: yes
+    package:
+      name: git
+      state: present
+
+  - name: Copy file with owner and permissions
+    become: no
+    copy:
+      src: git.cfg
+      dest: ~/.gitconfig
+      mode: '0664'
+      backup: yes
