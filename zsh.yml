@@ -14,7 +14,13 @@
 
     - name: change user shell to zsh
       user:
-        name: vagrant
+        name: "{{ ansible_user_id }}"
         shell: /usr/bin/zsh
 
-# make zshrc
+    - name: copy zshrc to user home dir
+      become: no
+      copy:
+        src: files/zshrc
+        dest: ~/.zshrc
+        mode: '0644'
+        backup: yes
