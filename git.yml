@@ -9,10 +9,10 @@
       name: git
       state: present
 
-  - name: Copy file with owner and permissions
+  - name: copy gitconfig to user home dir
     become: no
     copy:
-      src: git.cfg
-      dest: ~/.gitconfig
+      src: lib/vimrc
+      dest: ~/.vimrc
       mode: '0664'
       backup: yes
