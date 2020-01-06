@@ -22,3 +22,15 @@
         - nmap
         - traceroute
         - net-tools
+
+  - name: distribution specific packages (debian/ubuntu)
+    package:
+      name:
+        - ack-grep
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: distribution specific packages (centos/redhat)
+    package:
+      name:
+        - ack
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
