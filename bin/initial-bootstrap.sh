@@ -1,8 +1,4 @@
 #!/bin/bash
-if [[ $EUID -ne 0 ]]; then
-   echo "this script needs to sudo'ed"
-   exit 1
-fi
 
 # stole this from: https://unix.stackexchange.com/a/6348
 if [ -f /etc/os-release ]; then
@@ -42,18 +38,18 @@ echo $VER
 if [ $OS == "Ubuntu" ] || [ $OS == "Debian" ]; then
     echo "this is debian flavor machine"
 
-    apt-get -y install software-properties-common
-    apt-add-repository -y ppa:ansible/ansible
-    apt-get update
-    apt-get -y install git ansible
+    sudo apt-get -y install software-properties-common
+    sudo apt-add-repository -y ppa:ansible/ansible
+    sudo apt-get update
+    sudo apt-get -y install git ansible
 elif [ $OS == CentOS* ]; then
     echo "this is centos machine"
-    yum install -y epel-release
-    yum install -y ansible
+    sudo yum install -y epel-release
+    sudo yum install -y ansible
 else
     echo "not sure what flavor this machine is"
     echo "exiting"
-    exit
+    exit 1
 fi
 
-sudo -u $USER git clone git@github.com:shaungarwood/my_bootstraps.git
+git clone git@github.com:shaungarwood/my_bootstraps.git
