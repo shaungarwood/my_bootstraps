@@ -42,18 +42,18 @@ echo $VER
 if [ $OS == "Ubuntu" ] || [ $OS == "Debian" ]; then
     echo "this is debian flavor machine"
 
-    apt-get install software-properties-common
-    apt-add-repository ppa:ansible/ansible
+    apt-get -y install software-properties-common
+    apt-add-repository -y ppa:ansible/ansible
     apt-get update
-    apt-get install git ansible
+    apt-get -y install git ansible
 elif [ $OS == CentOS* ]; then
     echo "this is centos machine"
-    yum install epel-release
-    yum install ansible
+    yum install -y epel-release
+    yum install -y ansible
 else
     echo "not sure what flavor this machine is"
     echo "exiting"
     exit
 fi
 
-git clone git@github.com:shaungarwood/my_bootstraps.git
+sudo -u $USER git clone git@github.com:shaungarwood/my_bootstraps.git
