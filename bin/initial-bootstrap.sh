@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
+   echo "this script needs to sudo'ed"
    exit 1
 fi
 
