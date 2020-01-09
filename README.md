@@ -39,6 +39,7 @@ end
 - personal bin dir (PATH in bash/zsh?)
 - add extract function below (zsh?)
 - fix zsh on centos, still not taking new shell
+- ruby/rvm/pry setup
 ```
 
 ```
