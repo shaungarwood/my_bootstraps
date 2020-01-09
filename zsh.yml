@@ -12,10 +12,17 @@
         state:
           present
 
-    - name: change user shell to zsh
+    - name: change user shell to zsh (debian/ubuntu)
       user:
         name: "{{ ansible_user_id }}"
         shell: /usr/bin/zsh
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: change user shell to zsh (centos/redhat)
+      user:
+        name: "{{ ansible_user_id }}"
+        shell: /bin/zsh
+      when: ansible_facts['os_family'] == "RedHat"
 
     - name: copy zshrc to user home dir
       become: no
