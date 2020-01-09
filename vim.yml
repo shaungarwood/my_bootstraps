@@ -13,18 +13,23 @@
   - name: copy vimrc to user home dir
     become: no
     copy:
-      src: files/vimrc
+      src: files/vim/vimrc
       dest: ~/.vimrc
       mode: '0664'
       backup: yes
 
+  - name: vim plugins dir
+    become: no
+    file:
+      path: ~/.vim/plugin
+      state: directory
+      mode: '0755'
+
   - name: copy vim plugins to user home dir
     become: no
     copy:
-      src: files/vim/plugin
-      dest: ~/.vimrc/plugin
-      mode: '0644'
-      backup: yes
+      src: files/vim/plugin/
+      dest: ~/.vim/plugin/
 
   - name: make vim default editor (bash)
     become: no
