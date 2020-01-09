@@ -14,6 +14,18 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
 2. ```bash my_bootstraps/bin/initial_bootstrap.sh```
 3. ```ansible-playbook common_cli.yml zsh.yml vim.yml``` Run any playbooks necessary, or ```*.yml```
 
+## Full Vagrant Demo
+```
+Vagrant.configure("2") do |config|
+  config.vm.hostname = "ubuntu"
+  config.vm.box = "bento/ubuntu-18.04"
+
+  config.vm.provision "shell", inline: "wget https://raw.githubusercontent.com/shaungarwood/my_bootstraps/master/bin/initial-bootstrap.sh"
+  config.vm.provision "shell", inline: "bash initial-bootstrap.sh"
+  config.vm.provision "shell", inline: "ansible-playbook ~/my_bootstraps/*.yml"
+end
+```
+
 ## to-do
 ```
 - pyenv
