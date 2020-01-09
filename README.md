@@ -10,10 +10,9 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
 ---
 
 ## Set-up
-1. ```git clone git@github.com:shaungarwood/my_bootstraps.git && cd my_bootstraps```
-2. ```./lib/ansible_bootstrap.sh```
-3. ```ansible-playbook common_cli.yml```
-4. (Run any/all playbooks necessary on new system)
+1. ```git clone git@github.com:shaungarwood/my_bootstraps.git```
+2. ```bash my_bootstraps/bin/initial_bootstrap.sh```
+3. ```ansible-playbook common_cli.yml zsh.yml vim.yml``` Run any playbooks necessary, or ```*.yml```
 
 ## to-do
 ```
@@ -24,4 +23,30 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
     - vim prompt
     - mkvenv
     - pyenv
+- aliases
+- personal bin dir (PATH in bash/zsh?)
+- add extract function below (zsh?)
+```
+
+```
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1;;
+           *.tar.gz)    tar xvzf $1;;
+           *.bz2)       bunzip2 $1 ;;
+           *.rar)       unrar x $1 ;;
+           *.gz)        gunzip $1  ;;
+           *.tar)       tar xvf $1 ;;
+           *.tbz2)      tar xvjf $1;;
+           *.tgz)       tar xvzf $1;;
+           *.zip)       unzip $1   ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1;;
+           *) echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+}
 ```
