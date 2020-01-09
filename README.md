@@ -26,6 +26,7 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
 - aliases
 - personal bin dir (PATH in bash/zsh?)
 - add extract function below (zsh?)
+- fix zsh on centos, still not taking new shell
 ```
 
 ```
