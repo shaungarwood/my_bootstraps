@@ -40,6 +40,10 @@ end
 - add extract function below (zsh?)
 - fix zsh on centos, still not taking new shell
 - ruby/rvm/pry setup
+
+thoughts:
+- i think ansible can detect if it's a virtual env. could use to customize zsh prompt.
+- customize zsh prompt based on username (csw/sgarwood/vagrant)
 ```
 
 ```
