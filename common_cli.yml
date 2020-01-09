@@ -1,6 +1,7 @@
 ---
 
 - hosts: localhost
+  name: common CLI packages
   become: yes
   tasks:
 
