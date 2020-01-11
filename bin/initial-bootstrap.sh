@@ -82,7 +82,7 @@ fi
 
 # if this script is standalone, will still need to checkout repo
 if [[ ! -d ~/my_bootstraps ]]; then
-    git clone https://github.com/shaungarwood/my_bootstraps.git ~/my_bootstraps
+    git clone --depth 1 --branch master https://github.com/shaungarwood/my_bootstraps.git ~/my_bootstraps
 else
     echo "repo already exists, exiting"
 fi
