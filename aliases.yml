@@ -1,0 +1,32 @@
+---
+
+- name: ~~~~~~~~~~ aliases ~~~~~~~~~~
+  hosts: localhost
+  become: no
+  tasks:
+
+    - name: aliases file exists
+      copy:
+        src: files/aliases
+        dest: "{{ ansible_env.HOME }}/.aliases"
+        force: no
+        group: "{{ ansible_user_id }}"
+        owner: "{{ ansible_user_id }}"
+        mode: 0644
+
+    - name: packages for "extract" function
+      become: yes
+      package:
+        name:
+          - p7zip-full
+          - bzip2
+          - gzip
+          - tar
+          - unrar
+          - unzip
+
+    - name: bash source .aliases
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.bashrc"
+        line: . ~/.aliases
+        insertafter: EOF
