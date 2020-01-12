@@ -24,7 +24,7 @@
     - name: copy zshrc to user home dir
       become: no
       copy:
-        src: files/zshrc
+        src: ../files/zshrc
         dest: "{{ ansible_env.HOME }}/.zshrc"
         mode: 0644
         backup: yes

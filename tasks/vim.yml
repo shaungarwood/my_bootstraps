@@ -13,7 +13,7 @@
   - name: copy vimrc to user home dir
     become: no
     copy:
-      src: files/vim/vimrc
+      src: ../files/vim/vimrc
       dest: "{{ ansible_env.HOME }}/.vimrc"
       mode: 0664
       backup: yes
@@ -28,7 +28,7 @@
   - name: copy vim plugins to user home dir
     become: no
     copy:
-      src: files/vim/plugin/
+      src: ../files/vim/plugin/
       dest: "{{ ansible_env.HOME }}/.vim/plugin/"
 
   - name: make vim default editor (bash)

@@ -13,7 +13,7 @@
   - name: copy gitconfig to user home dir
     become: no
     copy:
-      src: files/gitconfig
+      src: ../files/gitconfig
       dest: "{{ ansible_env.HOME }}/.gitconfig"
       mode: 0664
       backup: yes
