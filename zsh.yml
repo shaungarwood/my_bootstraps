@@ -1,6 +1,6 @@
 ---
 
-- name: set up zsh for user
+- name: ~~~~~~~~~~ set up zsh for user ~~~~~~~~~~
   hosts: localhost
   become: no
   vars:
@@ -26,5 +26,14 @@
       copy:
         src: files/zshrc
         dest: ~/.zshrc
-        mode: '0644'
+        mode: 0644
         backup: yes
+
+    - name: zsh source .aliases
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.zshrc"
+        line: source "$HOME/.aliases"
+        insertafter: EOF
+
+- name: run the aliases playbook
+  include: aliases.yml
