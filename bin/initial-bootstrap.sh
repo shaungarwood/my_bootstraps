@@ -86,5 +86,3 @@ if [[ ! -d ~/my_bootstraps ]]; then
 else
     echo "repo already exists, exiting"
 fi
-
-alias ap="ansible-playbook"
