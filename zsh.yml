@@ -25,7 +25,7 @@
       become: no
       copy:
         src: files/zshrc
-        dest: ~/.zshrc
+        dest: "{{ ansible_env.HOME }}/.zshrc"
         mode: 0644
         backup: yes
 
@@ -36,4 +36,4 @@
         insertafter: EOF
 
 - name: run the aliases playbook
-  include: aliases.yml
+  import_playbook: aliases.yml

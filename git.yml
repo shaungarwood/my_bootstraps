@@ -1,6 +1,6 @@
 ---
 
-- name: setup git for user
+- name: ~~~~~~~~~~ setup git for user ~~~~~~~~~~
   hosts: localhost
   tasks:
 
@@ -14,6 +14,6 @@
     become: no
     copy:
       src: files/gitconfig
-      dest: ~/.gitconfig
-      mode: '0664'
+      dest: "{{ ansible_env.HOME }}/.gitconfig"
+      mode: 0664
       backup: yes
