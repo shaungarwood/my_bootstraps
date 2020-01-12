@@ -8,6 +8,7 @@
   tasks:
 
     - name: install zsh
+      become: yes
       package:
         name:
           zsh
