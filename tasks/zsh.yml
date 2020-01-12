@@ -25,6 +25,7 @@
       become: no
       copy:
         src: ../files/zshrc
+        force: no
         dest: "{{ ansible_env.HOME }}/.zshrc"
         mode: 0644
         backup: yes
