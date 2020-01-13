@@ -1,4 +1,6 @@
 alias c=clear
+alias delete_older_than_3_days="find . -mtime +3 -delete"
+alias fuck='sudo $(history -p \!\!)'
 extract () {
    if [ -f $1 ] ; then
        case $1 in
@@ -19,4 +21,8 @@ extract () {
        echo "'$1' is not a valid file!"
    fi
 }
+alias largest-dir="du -sx ./* 2>/dev/null | sort -n"
 alias ll="ls -lht"
+alias p='ping -s -v'
+alias ssh-proxy="ssh -v -4 -D 52804 -N"
+alias sudo='sudo -p "Ah ah ah, didnt say the magic word: "'
