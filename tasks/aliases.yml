@@ -2,11 +2,10 @@
 
 - name: ~~~~~~~~~~ aliases ~~~~~~~~~~
   hosts: localhost
-  become: yes
+  become: no
   tasks:
 
     - name: aliases file exists
-      become: no
       copy:
         src: ../files/aliases
         dest: "{{ ansible_env.HOME }}/.aliases"
@@ -16,6 +15,7 @@
         mode: 0644
 
     - name: packages for "extract" function
+      become: yes
       package:
         name:
           - bzip2
@@ -24,6 +24,7 @@
           - unzip
 
     - name: 7zip package (debian/ubuntu)
+      become: yes
       package:
         name:
           - p7zip-full
@@ -31,6 +32,7 @@
       when: ansible_facts['os_family'] == "Debian"
 
     - name: 7zip package (centos/redhat)
+      become: yes
       package:
         name:
           - p7zip
@@ -38,7 +40,6 @@
       when: ansible_facts['os_family'] == "RedHat"
 
     - name: bash source .aliases
-      become: no
       lineinfile:
         path: "{{ ansible_env.HOME }}/.bashrc"
         line: . ~/.aliases
