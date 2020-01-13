@@ -2,10 +2,11 @@
 
 - name: ~~~~~~~~~~ aliases ~~~~~~~~~~
   hosts: localhost
-  become: no
+  become: yes
   tasks:
 
     - name: aliases file exists
+      become: no
       copy:
         src: ../files/aliases
         dest: "{{ ansible_env.HOME }}/.aliases"
@@ -15,7 +16,6 @@
         mode: 0644
 
     - name: packages for "extract" function
-      become: yes
       package:
         name:
           - bzip2
@@ -38,6 +38,7 @@
       when: ansible_facts['os_family'] == "RedHat"
 
     - name: bash source .aliases
+      become: no
       lineinfile:
         path: "{{ ansible_env.HOME }}/.bashrc"
         line: . ~/.aliases
