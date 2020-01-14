@@ -46,6 +46,9 @@ end
 - personal bin dir (PATH in bash/zsh?)
 - ruby/rvm/pry setup
 
+https://github.com/pyenv/pyenv/wiki/common-build-problems
+^ use this for pre-reqs for pyenv
+
 thoughts:
 - i think ansible can detect if it's a virtual env. could use to customize zsh prompt.
 - customize zsh prompt based on username (csw/sgarwood/vagrant)
