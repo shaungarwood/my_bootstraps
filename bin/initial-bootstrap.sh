@@ -84,5 +84,5 @@ fi
 if [[ ! -d ~/my_bootstraps ]]; then
     git clone --depth 1 --branch master https://github.com/shaungarwood/my_bootstraps.git ~/my_bootstraps
 else
-    echo "repo already exists, exiting"
+    git pull ~/my_bootstraps/
 fi
