@@ -53,6 +53,7 @@ use a top-level playbook like "coding" or "work" to apply all the roles to whate
 lots of things going on:
 - install zsh plugin manager (antibody or antigen) to get plugins going
   - this would mean getting mkvenv going
+  - https://getantibody.github.io/    # <-- try this out in VM first
 - i really want to check out vim plugins, that site was sweet
 - re-org things into roles, so i can run a single playbook for "coding" or "work"
 - customize the pyenv role
