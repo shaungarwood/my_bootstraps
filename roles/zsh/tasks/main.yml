@@ -1,0 +1,35 @@
+---
+- name: install zsh
+  become: yes
+  package:
+    name:
+      zsh
+    state:
+      present
+
+- name: change user shell to zsh
+  become: yes
+  user:
+    name: "{{ the_user }}"
+    shell: /bin/zsh
+
+- name: copy zshrc to user home dir
+  become: no
+  copy:
+    src: ../files/zshrc
+    force: no
+    dest: "{{ user_home }}/.zshrc"
+    mode: 0644
+    backup: yes
+
+- name: Check whether .aliases exists
+  stat:
+    path: "{{ user_home }}/.aliases"
+  register: aliases_st
+
+- name: zsh source .aliases
+  lineinfile:
+    path: "{{ user_home }}/.zshrc"
+    line: source "$HOME/.aliases"
+    insertafter: EOF
+  when: aliases_st.stat.exists

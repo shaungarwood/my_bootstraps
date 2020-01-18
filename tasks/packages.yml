@@ -1,0 +1,6 @@
+- name: ~~~~~~~~~~ common packages ~~~~~~~~~~
+  hosts: localhost
+  become: yes
+
+  roles:
+    - role: '../roles/packages'

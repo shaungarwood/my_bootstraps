@@ -1,46 +1,5 @@
----
-
 - name: ~~~~~~~~~~ set up vim for user ~~~~~~~~~~
   hosts: localhost
-  tasks:
 
-  - name: ensure vim is installed
-    become: yes
-    package:
-      name: vim
-      state: present
-
-  - name: copy vimrc to user home dir
-    become: no
-    copy:
-      src: ../files/vim/vimrc
-      dest: "{{ ansible_env.HOME }}/.vimrc"
-      mode: 0664
-      backup: yes
-
-  - name: vim plugins dir
-    become: no
-    file:
-      path: "{{ ansible_env.HOME }}/.vim/plugin"
-      state: directory
-      mode: 0755
-
-  - name: copy vim plugins to user home dir
-    become: no
-    copy:
-      src: ../files/vim/plugin/
-      dest: "{{ ansible_env.HOME }}/.vim/plugin/"
-
-  - name: make vim default editor (bash)
-    become: no
-    lineinfile:
-      path: "{{ ansible_env.HOME }}/.bashrc"
-      line: "export EDITOR=vim"
-    when: ansible_env['SHELL'] is search("bash")
-
-  - name: make vim default editor (zsh)
-    become: no
-    lineinfile:
-      path: "{{ ansible_env.HOME }}/.zshrc"
-      line: "export EDITOR=vim"
-    when: ansible_env['SHELL'] is search("zsh")
+  roles:
+    - role: '../roles/vim'

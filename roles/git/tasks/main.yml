@@ -1,0 +1,14 @@
+---
+- name: ensure git is installed
+  become: yes
+  package:
+    name: git
+    state: present
+
+- name: copy gitconfig to user home dir
+  become: no
+  copy:
+    src: ../files/gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: 0664
+    backup: yes

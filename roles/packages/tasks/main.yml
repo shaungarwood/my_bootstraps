@@ -1,0 +1,32 @@
+---
+- name: Common CLI packages
+  package:
+    name:
+      - unzip
+      - jq
+      - git
+      - screen
+      - tree
+      - vim
+
+- name: Common CLI networking packages
+  package:
+    name:
+      - wget
+      - curl
+      - telnet
+      - nmap
+      - traceroute
+      - net-tools
+
+- name: distribution specific packages (debian/ubuntu)
+  package:
+    name:
+      - ack-grep
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: distribution specific packages (centos/redhat)
+  package:
+    name:
+      - ack
+  when: ansible_facts['os_family'] == "RedHat"

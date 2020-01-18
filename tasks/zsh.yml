@@ -1,40 +1,6 @@
----
-
 - name: ~~~~~~~~~~ set up zsh for user ~~~~~~~~~~
   hosts: localhost
   become: no
-  vars:
-    the_user: "{{ ansible_user_id }}"
-  tasks:
 
-    - name: install zsh
-      become: yes
-      package:
-        name:
-          zsh
-        state:
-          present
-
-    - name: change user shell to zsh
-      become: yes
-      user:
-        name: "{{ the_user }}"
-        shell: /bin/zsh
-
-    - name: copy zshrc to user home dir
-      become: no
-      copy:
-        src: ../files/zshrc
-        force: no
-        dest: "{{ ansible_env.HOME }}/.zshrc"
-        mode: 0644
-        backup: yes
-
-    - name: zsh source .aliases
-      lineinfile:
-        path: "{{ ansible_env.HOME }}/.zshrc"
-        line: source "$HOME/.aliases"
-        insertafter: EOF
-
-- name: run the aliases playbook
-  import_playbook: aliases.yml
+  roles:
+    - role: '../roles/zsh'
