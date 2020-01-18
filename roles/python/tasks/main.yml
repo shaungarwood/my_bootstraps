@@ -1,4 +1,22 @@
 ---
+- name: install python pre-reqs (centos/redhat)
+  yum:
+    name:
+      - '@development'
+      - zlib-devel
+      - bzip2
+      - bzip2-devel
+      - readline-devel
+      - sqlite
+      - sqlite-devel
+      - openssl-devel
+      - xz
+      - xz-devel
+      - libffi-devel
+      - findutils
+    state: present
+  when: ansible_facts['os_family'] == "RedHat"
+
 - name: install pyenv and python3
   include_role:
     name: markosamuli.pyenv
