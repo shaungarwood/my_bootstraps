@@ -1,5 +1,6 @@
 ---
 - name: install python pre-reqs (centos/redhat)
+  become: yes
   yum:
     name:
       - '@development'
