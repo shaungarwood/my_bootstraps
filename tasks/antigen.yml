@@ -1,16 +1,6 @@
-- hosts: localhost
+- name: ~~~~~~~~~~ antigen ~~~~~~~~~~
+  hosts: localhost
+  become: no
+
   roles:
-    - role: gantsign.antigen
-      users:
-        - username: "{{ ansible_user_id }}"
-          antigen_libraries:
-            - name: oh-my-zsh
-          antigen_theme:
-            name: robbyrussell
-          antigen_bundles:
-            - name: git
-            - name: command-not-found
-            - name: zsh-syntax-highlighting
-              url: zsh-users/zsh-syntax-highlighting
-            - name: zsh-autoswitch-virtualenv
-              url: MichaelAquilina/zsh-autoswitch-virtualenv
+    - role: '../roles/antigen'

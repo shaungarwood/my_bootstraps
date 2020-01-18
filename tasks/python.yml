@@ -1,19 +1,6 @@
-- hosts: localhost
-  connection: local
-  become: false
-
-  vars:
-    - pyenv_python_versions:
-      - "{{ pyenv_python3_version }}"
-    - pyenv_global: "{{ pyenv_python3_version }} system"
+- name: ~~~~~~~~~~ python ~~~~~~~~~~
+  hosts: localhost
+  become: no
 
   roles:
-    - role: markosamuli.pyenv
-
-  tasks:
-    - pip:
-        executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
-        name:
-          - requests
-          - ipython
-          - virtualenv
+    - role: '../roles/python'

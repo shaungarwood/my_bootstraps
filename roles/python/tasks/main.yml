@@ -1,0 +1,15 @@
+---
+- name: install pyenv and python3
+  include_role:
+    name: markosamuli.pyenv
+  vars:
+    - pyenv_python_versions:
+      - "{{ pyenv_python3_version }}"
+    - pyenv_global: "{{ pyenv_python3_version }} system"
+
+- pip:
+    executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
+    name:
+      - requests
+      - ipython
+      - virtualenv
