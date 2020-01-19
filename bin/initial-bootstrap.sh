@@ -62,7 +62,7 @@ echo
 
 # install ansible and git
 if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
-    echo "this is debian flavor machine"
+    echo "this is a debian flavor machine"
     echo
 
     sudo apt-get -y install software-properties-common
@@ -70,7 +70,7 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
     sudo apt-get update
     sudo apt-get -y install git ansible
 elif [[ "$OS" == CentOS* ]]; then
-    echo "this is centos machine"
+    echo "this is a centos machine"
     echo
     sudo yum install -y epel-release
     sudo yum install -y git ansible
