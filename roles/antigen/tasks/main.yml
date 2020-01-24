@@ -14,6 +14,6 @@
           - name: command-not-found
           - name: zsh-syntax-highlighting
             url: zsh-users/zsh-syntax-highlighting
-          - name: zsh-autoswitch-virtualenv # my fix for zsh 5.0.2
-            url: shaungarwood/zsh-autoswitch-virtualenv
+          - name: zsh-autoswitch-virtualenv
+            url: MichaelAquilina/zsh-autoswitch-virtualenv
             branch: local_var_bug
