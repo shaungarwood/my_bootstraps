@@ -19,3 +19,5 @@
 [pager]
         ls = false
         branch = false
+[push]
+	default = simple
