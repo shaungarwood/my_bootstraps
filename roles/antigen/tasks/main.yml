@@ -16,4 +16,3 @@
             url: zsh-users/zsh-syntax-highlighting
           - name: zsh-autoswitch-virtualenv
             url: MichaelAquilina/zsh-autoswitch-virtualenv
-            branch: local_var_bug
