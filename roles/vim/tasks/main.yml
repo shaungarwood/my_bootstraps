@@ -26,6 +26,26 @@
     src: ../files/plugin/
     dest: "{{ ansible_env.HOME }}/.vim/plugin/"
 
+- name: make vim bundle directory
+  become: false
+  file:
+    path: "{{ ansible_env.HOME }}/.vim/bundle"
+    state: directory
+
+- name: clone vundle
+  become: false
+  git:
+    repo: "https://github.com/gmarik/Vundle.vim.git"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    accept_hostkey: "no"
+    version: "master"
+
+- name: install vim plugins
+  become: no
+  command: "vim +PluginInstall +qall"
+  tags:
+    - skip_ansible_lint
+
 - name: make vim default editor (bash)
   become: no
   lineinfile:
