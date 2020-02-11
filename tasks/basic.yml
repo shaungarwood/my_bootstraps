@@ -1,0 +1,12 @@
+- name: ~~~~~~~~~~ basic ~~~~~~~~~~
+  hosts: localhost
+  become: no
+
+  vars:
+    - user_home: "/home/vagrant"
+
+  roles:
+    - role: '../roles/git'
+    - role: '../roles/zsh'
+    - role: '../roles/aliases'
+    - role: '../roles/vim'
