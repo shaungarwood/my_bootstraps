@@ -2,8 +2,5 @@
   hosts: localhost
   become: no
 
-  vars:
-    - user_home: "/home/vagrant"
-
   roles:
     - role: '../roles/aliases'
