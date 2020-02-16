@@ -6,8 +6,8 @@
     insertbefore: '" end vundle plugins'
     marker: "\" ----- {mark} development plugins -----"
     block: |
-      Plugin 'tmhedberg/SimpylFold'
       Plugin 'scrooloose/syntastic'
+      Plugin 'scrooloose/nerdtree'
 
 - name: development plugin settings
   blockinfile:
@@ -16,9 +16,15 @@
     insertafter: '" plugin specific settings'
     marker: "\" ----- {mark} plugin specific settings -----"
     block: |
-      " Enable folding
-      set foldmethod=indent
-      set foldlevel=99
+      " nerdtree keymap for ctrl-n
+      map <C-n> :NERDTreeToggle<CR>
 
-      " Enable folding with the spacebar
-      nnoremap <space> za
+      " syntastic settings
+      set statusline+=%#warningmsg#
+      set statusline+=%{SyntasticStatuslineFlag()}
+      set statusline+=%*
+
+      let g:syntastic_always_populate_loc_list = 1
+      let g:syntastic_auto_loc_list = 1
+      let g:syntastic_check_on_open = 1
+      let g:syntastic_check_on_wq = 0
