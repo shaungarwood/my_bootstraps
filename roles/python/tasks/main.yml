@@ -23,8 +23,8 @@
     name: markosamuli.pyenv
   vars:
     - pyenv_python_versions:
-      - "{{ pyenv_python3_version }}"
-    - pyenv_global: "{{ pyenv_python3_version }} system"
+      - "{{ pyenv_python37_version }}"
+    - pyenv_global: "{{ pyenv_python37_version }} system"
 
 - pip:
     executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
@@ -32,3 +32,4 @@
       - requests
       - ipython
       - virtualenv
+      - flake8
