@@ -8,9 +8,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,6 +38,8 @@ filetype plugin on
 set ignorecase           " be case insensitive on searches
 set smartcase            " but do be case sensitive on searches with capital letters
 set cryptmethod=blowfish2 " better encryption method
+set splitright            " new vert split window to the right
+set splitbelow            " new horz split window below
 
 " Make comments bolded, light blue.  Super easy to read against a black bg.
 :highlight Comment term=bold cterm=bold ctermfg=6
