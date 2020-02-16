@@ -1,0 +1,24 @@
+---
+- name: development plugins in vimrc
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.vimrc"
+    backup: yes
+    insertbefore: '" end vundle plugins'
+    marker: "\" ----- {mark} development plugins -----"
+    block: |
+      Plugin 'tmhedberg/SimpylFold'
+      Plugin 'scrooloose/syntastic'
+
+- name: development plugin settings
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.vimrc"
+    backup: yes
+    insertafter: '" plugin specific settings'
+    marker: "\" ----- {mark} plugin specific settings -----"
+    block: |
+      " Enable folding
+      set foldmethod=indent
+      set foldlevel=99
+
+      " Enable folding with the spacebar
+      nnoremap <space> za

@@ -40,6 +40,9 @@
     accept_hostkey: "no"
     version: "master"
 
+- include_tasks: vim-dev.yml
+  when: development_env
+
 - name: install vim plugins
   become: no
   command: "vim +PluginInstall +qall"

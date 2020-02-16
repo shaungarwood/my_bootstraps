@@ -5,23 +5,16 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
+" begin vundle plugins
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'scrooloose/syntastic'
 
-" All of your Plugins must be added before the following line
+" end vundle plugins
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
+" plugin specific settings
 
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
 au BufRead,BufNewFile *.py,*.pyw set expandtab
