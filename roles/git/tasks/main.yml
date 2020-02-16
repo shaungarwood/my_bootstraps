@@ -9,7 +9,7 @@
   become: no
   copy:
     src: ../files/gitconfig
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    dest: "{{ the_user_home }}/.gitconfig"
     mode: 0664
     backup: yes
 

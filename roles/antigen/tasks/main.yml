@@ -4,7 +4,7 @@
     name: gantsign.antigen
   vars:
     users:
-      - username: "{{ ansible_user_id }}"
+      - username: "{{ the_user }}"
         antigen_libraries:
           - name: oh-my-zsh
         antigen_theme:

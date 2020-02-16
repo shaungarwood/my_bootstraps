@@ -27,7 +27,7 @@
     - pyenv_global: "{{ pyenv_python37_version }} system"
 
 - pip:
-    executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip3"
+    executable: "{{ the_user_home }}/.pyenv/shims/pip3"
     name:
       - requests
       - ipython

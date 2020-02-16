@@ -1,7 +1,7 @@
 ---
 - name: development plugins in vimrc
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.vimrc"
+    path: "{{ the_user_home }}/.vimrc"
     backup: yes
     insertbefore: '" end vundle plugins'
     marker: "\" ----- {mark} development plugins -----"
@@ -11,7 +11,7 @@
 
 - name: development plugin settings
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.vimrc"
+    path: "{{ the_user_home }}/.vimrc"
     backup: yes
     insertafter: '" plugin specific settings'
     marker: "\" ----- {mark} plugin specific settings -----"

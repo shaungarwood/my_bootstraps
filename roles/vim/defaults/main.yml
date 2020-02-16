@@ -1,2 +1,4 @@
 ---
 development_env: true
+the_user: "{{ ansible_user_id }}"
+the_user_home: "{{ ansible_env.HOME }}"

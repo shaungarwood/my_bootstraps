@@ -9,14 +9,14 @@
   become: no
   copy:
     src: ../files/vimrc
-    dest: "{{ ansible_env.HOME }}/.vimrc"
+    dest: "{{ the_user_home }}/.vimrc"
     mode: 0664
     backup: yes
 
 - name: vim plugins dir
   become: no
   file:
-    path: "{{ ansible_env.HOME }}/.vim/plugin"
+    path: "{{ the_user_home }}/.vim/plugin"
     state: directory
     mode: 0755
 
@@ -24,19 +24,19 @@
   become: no
   copy:
     src: ../files/plugin/
-    dest: "{{ ansible_env.HOME }}/.vim/plugin/"
+    dest: "{{ the_user_home }}/.vim/plugin/"
 
 - name: make vim bundle directory
   become: false
   file:
-    path: "{{ ansible_env.HOME }}/.vim/bundle"
+    path: "{{ the_user_home }}/.vim/bundle"
     state: directory
 
 - name: clone vundle
   become: false
   git:
     repo: "https://github.com/gmarik/Vundle.vim.git"
-    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    dest: "{{ the_user_home }}/.vim/bundle/Vundle.vim"
     accept_hostkey: "no"
     version: "master"
 
@@ -52,13 +52,13 @@
 - name: make vim default editor (bash)
   become: no
   lineinfile:
-    path: "{{ ansible_env.HOME }}/.bashrc"
+    path: "{{ the_user_home }}/.bashrc"
     line: "export EDITOR=vim"
   when: ansible_env['SHELL'] is search("bash")
 
 - name: make vim default editor (zsh)
   become: no
   lineinfile:
-    path: "{{ ansible_env.HOME }}/.zshrc"
+    path: "{{ the_user_home }}/.zshrc"
     line: "export EDITOR=vim"
   when: ansible_env['SHELL'] is search("zsh")
