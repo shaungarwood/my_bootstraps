@@ -12,15 +12,18 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
 ## Set-up
 1. ```git clone git@github.com:shaungarwood/my_bootstraps.git```
 2. ```bash my_bootstraps/bin/initial_bootstrap.sh```
-3. ```ansible-playbook tasks/zsh.yml tasks/vim.yml``` Run any playbooks necessary, or ```*.yml```
+3. ```ansible-playbook tasks/zsh.yml tasks/vim.yml``` Run any playbooks necessary, or ```all.yml```
 
 ## Full Vagrant Demo
 ```
 Vagrant.configure("2") do |config|
-  config.vm.provision "shell", inline: "wget https://raw.githubusercontent.com/shaungarwood/my_bootstraps/master/bin/initial-bootstrap.sh"
-  config.vm.provision "shell", inline: "bash initial-bootstrap.sh"
-  config.vm.provision "shell", inline: "ansible-playbook ~/my_bootstraps/tasks/*.yml"
+  $script = <<-SCRIPT
+  wget shaungarwood.com/bs.sh
+  bash bs.sh
+  ansible-playbook ~/my_bootstraps/tasks/basic.yml
+  SCRIPT
 
+  config.vm.provision "shell", inline: $script, privileged: false
 
   config.vm.define "centos" do |centos|
     centos.vm.box = "bento/centos-7.2"
