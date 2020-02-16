@@ -1,0 +1,18 @@
+---
+- name: enable epel for CentOS
+  become: yes
+  yum:
+    name: epel-release
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: install git-flow for CentOS
+  become: yes
+  yum:
+    name: gitflow
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: install git-flow for Debian
+  become: yes
+  yum:
+    name: git-flow
+  when: ansible_facts['os_family'] == "Debian"
