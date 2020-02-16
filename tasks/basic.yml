@@ -1,10 +1,11 @@
 - name: ~~~~~~~~~~ basic ~~~~~~~~~~
   hosts: localhost
   become: no
+  vars:
+    development_env: false
 
   roles:
     - role: '../roles/git'
-      tags: [ never, development ]
     - role: '../roles/zsh'
     - role: '../roles/aliases'
     - role: '../roles/vim'

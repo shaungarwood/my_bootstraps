@@ -14,5 +14,4 @@
     backup: yes
 
 - import_tasks: git-flow.yml
-  tags:
-    - development
+  when: development_env
