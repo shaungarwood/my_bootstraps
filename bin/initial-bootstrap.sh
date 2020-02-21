@@ -65,6 +65,7 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
     echo "this is a debian flavor machine"
     echo
 
+    DEBIAN_FRONTEND=noninteractive
     sudo apt-get -y install software-properties-common
     sudo apt-add-repository -y ppa:ansible/ansible
     sudo apt-get update
