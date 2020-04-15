@@ -1,5 +1,5 @@
 ---
 roles:
-  - src: gantsign.antigen
+  - src: https://github.com/gantsign/ansible_role_antigen
 
-  - src: markosamuli.pyenv
+  - src: https://github.com/markosamuli/ansible-pyenv
