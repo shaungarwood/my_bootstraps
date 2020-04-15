@@ -1,9 +1,8 @@
 ---
-roles:
-  - name: gantsign.antigen
-    src: git@github.com:gantsign/ansible_role_antigen.git
-    version: master
+- name: gantsign.antigen
+  src: https://github.com/gantsign/ansible_role_antigen
+  version: master
 
-  - name: markosamuli.pyenv
-    src: git@github.com:markosamuli/ansible-pyenv.git
-    version: master
+- name: markosamuli.pyenv
+  src: https://github.com/markosamuli/ansible-pyenv
+  version: master
