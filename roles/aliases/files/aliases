@@ -22,7 +22,7 @@ extract () {
    fi
 }
 alias largest-dir="du -sx ./* 2>/dev/null | sort -n"
-alias ll="ls -lht"
+alias ll="ls -lht --color"
 alias p='ping -s -v'
 alias ssh-proxy="ssh -v -4 -D 52804 -N"
 alias sudo='sudo -p "Ah ah ah, didnt say the magic word: "'
