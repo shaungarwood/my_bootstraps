@@ -26,6 +26,19 @@
     src: ../files/plugin/
     dest: "{{ the_user_home }}/.vim/plugin/"
 
+- name: vim indent dir
+  become: no
+  file:
+    path: "{{ the_user_home }}/.vim/indent"
+    state: directory
+    mode: 0755
+
+- name: copy vim indent to user home dir
+  become: no
+  copy:
+    src: ../files/indent/
+    dest: "{{ the_user_home }}/.vim/indent/"
+
 - name: make vim bundle directory
   become: false
   file:

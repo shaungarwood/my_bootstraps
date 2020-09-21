@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'pbrisbin/vim-mkdir'
 
 " end vundle plugins
 call vundle#end()            " required
