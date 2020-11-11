@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory autocd notify
+setopt appendhistory autocd notify no_share_history
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
