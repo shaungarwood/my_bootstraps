@@ -8,7 +8,7 @@
         antigen_libraries:
           - name: oh-my-zsh
         antigen_theme:
-          name: robbyrussell
+          name: aussiegeek
         antigen_bundles:
           - name: git
           - name: command-not-found
