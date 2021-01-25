@@ -54,7 +54,7 @@
     version: "master"
 
 - include_tasks: vim-dev.yml
-  when: development_env
+  tags: dev
 
 - name: install vim plugins
   become: no

@@ -1,0 +1,12 @@
+- name: ~~~~~~~~~~ dev ~~~~~~~~~~
+  hosts: localhost
+  tags: dev
+  become: no
+
+  roles:
+    - role: '../roles/git'
+    - role: '../roles/zsh'
+    - role: '../roles/antigen'
+    - role: '../roles/aliases'
+    - role: '../roles/python'
+    - role: '../roles/vim'
