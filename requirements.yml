@@ -6,3 +6,7 @@
 - name: markosamuli.pyenv
   src: https://github.com/markosamuli/ansible-pyenv
   version: master
+
+- name: zzet.rbenv
+  src: https://github.com/zzet/rbenv
+  version: master
