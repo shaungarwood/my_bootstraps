@@ -11,5 +11,5 @@
 - name: install common ruby gems
   community.general.gem:
     name: pry
-    gem_source: "{{ the_user_home }}/.rbenv/shims/gem"
+    executable: "{{ the_user_home }}/.rbenv/shims/gem"
     state: present

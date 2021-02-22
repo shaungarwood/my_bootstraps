@@ -1,0 +1,6 @@
+- name: ~~~~~~~~~~ ruby ~~~~~~~~~~
+  hosts: localhost
+  become: no
+
+  roles:
+    - role: '../roles/ruby'
