@@ -1,0 +1,15 @@
+---
+- name: install rbenv and ruby3
+  include_role:
+    name: zzet.rbenv
+  vars:
+    default_ruby: 2.5.8
+    rubies:
+      - version: 3.0.0
+      - version: 2.5.8
+
+- name: install common ruby gems
+  community.general.gem:
+    name: pry
+    gem_source: "{{ the_user_home }}/.rbenv/shims/gem"
+    state: present
