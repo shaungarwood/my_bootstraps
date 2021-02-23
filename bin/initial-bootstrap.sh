@@ -88,5 +88,8 @@ else
     git pull ~/my_bootstraps/
 fi
 
+# install community collection (for ruby)
+ansible-galaxy collection install community.general
+
 # install needed galaxy roles
 ansible-galaxy install -r ~/my_bootstraps/requirements.yml
