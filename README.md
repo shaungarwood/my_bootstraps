@@ -36,32 +36,3 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
-
-## to-do
-```
-- zsh
-  > plugins:
-    - mkvenv
-    - pyenv
-- personal bin dir (PATH in bash/zsh?)
-- customize pyenv role
-
-https://github.com/pyenv/pyenv/wiki/common-build-problems
-^ use this for pre-reqs for pyenv
-
-https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
-^ break apart some of my playbooks into roles
-use a top-level playbook like "coding" or "work" to apply all the roles to whatever machine
-
-lots of things going on:
-- install zsh plugin manager (antibody or antigen) to get plugins going
-  - this would mean getting mkvenv going
-  - https://getantibody.github.io/    # <-- try this out in VM first
-- i really want to check out vim plugins, that site was sweet
-- re-org things into roles, so i can run a single playbook for "coding" or "work"
-- customize the pyenv role
-
-thoughts:
-- i think ansible can detect if it's a virtual env. could use to customize zsh prompt.
-- customize zsh prompt based on username (csw/sgarwood/vagrant)
-```
