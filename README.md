@@ -11,7 +11,7 @@ Setting up new systems takes time. Here are my bootstraps and ansible playbooks 
 
 ## Set-up
 1. ```git clone git@github.com:shaungarwood/my_bootstraps.git```
-2. ```bash my_bootstraps/bin/initial_bootstrap.sh```
+2. ```cd my_bootstraps && bash bin/initial_bootstrap.sh```
 3. ```ansible-playbook tasks/zsh.yml tasks/vim.yml``` Run any playbooks necessary, or ```all.yml```
 
 ## Full Vagrant Demo
