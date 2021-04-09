@@ -1,6 +1,6 @@
 - name: ~~~~~~~~~~ common packages ~~~~~~~~~~
   hosts: localhost
-  become: yes
+  become: no
 
   roles:
     - role: '../roles/packages'
