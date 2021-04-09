@@ -1,5 +1,5 @@
 ---
-- name: necessary packages
+- name: install required packages (centos)
   become: yes
   package:
     name:
@@ -12,6 +12,20 @@
       - gcc-c++
       - make
       - bison
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: install required packages (debian)
+  become: yes
+  package:
+    name:
+      - libevent-dev
+      - ncurses-base
+      - ncurses-dev
+      - build-essential
+      - automake
+      - pkg-config
+      - byacc
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: make tmux directory
   file:
