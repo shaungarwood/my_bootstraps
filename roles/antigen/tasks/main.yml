@@ -1,4 +1,9 @@
 ---
+- name: change zsh theme if VM
+  set_fact:
+    zsh_theme: "aussiegeek"
+  when: ansible_virtualization_role == "guest"
+
 - name: antigen and oh-my-zsh
   include_role:
     name: gantsign.antigen
@@ -8,7 +13,7 @@
         antigen_libraries:
           - name: oh-my-zsh
         antigen_theme:
-          name: aussiegeek
+          name: "{{ zsh_theme }}"
         antigen_bundles:
           - name: git
           - name: command-not-found
