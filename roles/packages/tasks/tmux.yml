@@ -14,13 +14,11 @@
       - pkg-config
 
 - name: make tmux directory
-  become: no
   file:
     path: "/tmp/tmux"
     state: directory
 
 - name: Download source
-  become: no
   git:
     repo: "https://github.com/tmux/tmux.git"
     dest: "/tmp/tmux"
@@ -28,7 +26,6 @@
     version: "master"
 
 - name: build tmux
-  become: no
   command: "./configure && make"
   args:
     chdir: "/tmp/tmux"
@@ -38,3 +35,8 @@
   command: "make install"
   args:
     chdir: "/tmp/tmux"
+
+- name: copy tmux.conf to user home dir
+  copy:
+    src: ../files/tmux.conf
+    dest: "{{ the_user_home }}/.tmux.conf"
