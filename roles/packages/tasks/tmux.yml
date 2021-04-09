@@ -11,21 +11,29 @@
       - gcc-c++
       - make
       - bison
-      - pkg-config
 
 - name: make tmux directory
+  become: no
   file:
     path: "/tmp/tmux"
     state: directory
 
 - name: Download source
+  become: no
   git:
     repo: "https://github.com/tmux/tmux.git"
     dest: "/tmp/tmux"
     accept_hostkey: "no"
     version: "master"
 
+- name: tmux autogen
+  become: no
+  command: "sh autogen.sh"
+  args:
+    chdir: "/tmp/tmux"
+
 - name: build tmux
+  become: no
   command: "./configure && make"
   args:
     chdir: "/tmp/tmux"
@@ -37,6 +45,7 @@
     chdir: "/tmp/tmux"
 
 - name: copy tmux.conf to user home dir
+  become: no
   copy:
     src: ../files/tmux.conf
     dest: "{{ the_user_home }}/.tmux.conf"
