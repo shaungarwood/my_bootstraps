@@ -1,4 +1,10 @@
 ---
+- name: remove system tmux
+  become: yes
+  package:
+    name: tmux
+    state: absent
+
 - name: install required packages (centos)
   become: yes
   package:
