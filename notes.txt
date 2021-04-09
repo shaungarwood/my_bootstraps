@@ -1,0 +1,19 @@
+- make a task for VM
+  - vim
+  - zsh
+  - aliases (is this in zsh?)
+  - antigen
+  - packages
+
+- turn tmux on by default?
+  - zsh tmux plugin (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux)
+
+- joplin
+
+
+- colors in vim are a little funny inside of tmux
+
+- i need a vim colorscheme
+
+powerline (different on centos)
+https://gist.github.com/cheuerde/f33873b75bde3fe6cd8a
