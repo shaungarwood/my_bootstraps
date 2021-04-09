@@ -5,6 +5,13 @@
       - libevent
       - libevent-devel
       - ncurses
+      - ncurses-devel
+      - automake
+      - gcc
+      - gcc-c++
+      - make
+      - bison
+      - pkg-config
 
 - name: make tmux directory
   become: no
@@ -20,8 +27,14 @@
     accept_hostkey: "no"
     version: "master"
 
-- name: install tmux
+- name: build tmux
   become: no
-  command: "sh autogen.sh && ./configure && make"
+  command: "./configure && make"
+  args:
+    chdir: "/tmp/tmux"
+
+- name: install tmux
+  become: yes
+  command: "make install"
   args:
     chdir: "/tmp/tmux"
