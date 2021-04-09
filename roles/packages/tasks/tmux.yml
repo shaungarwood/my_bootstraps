@@ -13,30 +13,25 @@
       - bison
 
 - name: make tmux directory
-  become: no
   file:
     path: "/tmp/tmux"
     state: directory
 
 - name: Download source
-  become: no
   git:
     repo: "https://github.com/tmux/tmux.git"
     dest: "/tmp/tmux"
     accept_hostkey: "no"
     version: "master"
 
-- name: tmux autogen
-  become: no
-  command: "sh autogen.sh"
+- name: tmux build
+  command: "{{ item }}"
   args:
     chdir: "/tmp/tmux"
-
-- name: build tmux
-  become: no
-  command: "./configure && make"
-  args:
-    chdir: "/tmp/tmux"
+  with_items:
+    - sh autogen.sh
+    - ./configure
+    - make
 
 - name: install tmux
   become: yes
@@ -45,7 +40,6 @@
     chdir: "/tmp/tmux"
 
 - name: copy tmux.conf to user home dir
-  become: no
   copy:
     src: ../files/tmux.conf
     dest: "{{ the_user_home }}/.tmux.conf"
