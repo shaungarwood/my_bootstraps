@@ -1,5 +1,6 @@
 ---
 - name: necessary packages
+  become: yes
   package:
     name:
       - libevent
@@ -22,7 +23,7 @@
     repo: "https://github.com/tmux/tmux.git"
     dest: "/tmp/tmux"
     accept_hostkey: "no"
-    version: "master"
+    version: "{{ tmux_version }}"
 
 - name: tmux build
   command: "{{ item }}"

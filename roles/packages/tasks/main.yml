@@ -1,5 +1,6 @@
 ---
 - name: Common CLI packages
+  become: yes
   package:
     name:
       - unzip
@@ -10,6 +11,7 @@
       - vim
 
 - name: Common CLI networking packages
+  become: yes
   package:
     name:
       - wget
@@ -20,12 +22,14 @@
       - net-tools
 
 - name: distribution specific packages (debian/ubuntu)
+  become: yes
   package:
     name:
       - ack-grep
   when: ansible_facts['os_family'] == "Debian"
 
 - name: distribution specific packages (centos/redhat)
+  become: yes
   package:
     name:
       - ack
