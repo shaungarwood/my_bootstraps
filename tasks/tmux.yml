@@ -1,0 +1,6 @@
+- name: ~~~~~~~~~~ tmux ~~~~~~~~~~
+  hosts: localhost
+  become: no
+
+  roles:
+    - role: '../roles/tmux'
