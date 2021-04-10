@@ -1,66 +1,70 @@
 ---
-- name: remove system tmux
-  become: yes
-  package:
-    name: tmux
-    state: absent
+# - name: remove system tmux
+#   become: yes
+#   package:
+#     name: tmux
+#     state: absent
+#
+# - name: install required packages (centos)
+#   become: yes
+#   package:
+#     name:
+#       - libevent
+#       - libevent-devel
+#       - ncurses
+#       - ncurses-devel
+#       - automake
+#       - gcc
+#       - gcc-c++
+#       - make
+#       - bison
+#   when: ansible_facts['os_family'] == "RedHat"
+#
+# - name: install required packages (debian)
+#   become: yes
+#   package:
+#     name:
+#       - libevent-dev
+#       - ncurses-base
+#       - ncurses-dev
+#       - build-essential
+#       - automake
+#       - pkg-config
+#       - byacc
+#   when: ansible_facts['os_family'] == "Debian"
+#
+# - name: make tmux directory
+#   file:
+#     path: "/tmp/tmux"
+#     state: directory
+#
+# - name: Download source
+#   git:
+#     repo: "https://github.com/tmux/tmux.git"
+#     dest: "/tmp/tmux"
+#     accept_hostkey: "no"
+#     version: "{{ tmux_version }}"
+#
+# - name: tmux build
+#   command: "{{ item }}"
+#   args:
+#     chdir: "/tmp/tmux"
+#   with_items:
+#     - sh autogen.sh
+#     - ./configure
+#     - make
+#
+# - name: install tmux
+#   become: yes
+#   command: "make install"
+#   args:
+#     chdir: "/tmp/tmux"
+#
+# - name: copy tmux.conf to user home dir
+#   copy:
+#     src: ../files/tmux.conf
+#     dest: "{{ the_user_home }}/.tmux.conf"
 
-- name: install required packages (centos)
-  become: yes
-  package:
-    name:
-      - libevent
-      - libevent-devel
-      - ncurses
-      - ncurses-devel
-      - automake
-      - gcc
-      - gcc-c++
-      - make
-      - bison
-  when: ansible_facts['os_family'] == "RedHat"
-
-- name: install required packages (debian)
-  become: yes
-  package:
-    name:
-      - libevent-dev
-      - ncurses-base
-      - ncurses-dev
-      - build-essential
-      - automake
-      - pkg-config
-      - byacc
-  when: ansible_facts['os_family'] == "Debian"
-
-- name: make tmux directory
-  file:
-    path: "/tmp/tmux"
-    state: directory
-
-- name: Download source
-  git:
-    repo: "https://github.com/tmux/tmux.git"
-    dest: "/tmp/tmux"
-    accept_hostkey: "no"
-    version: "{{ tmux_version }}"
-
-- name: tmux build
-  command: "{{ item }}"
-  args:
-    chdir: "/tmp/tmux"
-  with_items:
-    - sh autogen.sh
-    - ./configure
-    - make
-
-- name: install tmux
-  become: yes
-  command: "make install"
-  args:
-    chdir: "/tmp/tmux"
-
-- name: copy tmux.conf to user home dir
-  copy:
-    src: ../files/tmux.conf
-    dest: "{{ the_user_home }}/.tmux.conf"
+- name: install powerline
+  include_tasks: powerline.yml
+  when: install_powerline

@@ -4,3 +4,5 @@
 
   roles:
     - role: '../roles/tmux'
+      vars:
+        install_powerline: true
