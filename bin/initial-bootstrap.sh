@@ -85,7 +85,7 @@ fi
 if [[ ! -d ~/my_bootstraps ]]; then
     git clone --depth 1 --branch main https://github.com/shaungarwood/my_bootstraps.git ~/my_bootstraps
 else
-    git pull ~/my_bootstraps/
+    cd ~/my_bootstraps/ && git pull
 fi
 
 # install needed galaxy roles
