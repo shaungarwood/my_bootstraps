@@ -3,9 +3,9 @@
   become: no
 
   roles:
-    - role: '../roles/git'
-    - role: '../roles/zsh'
-    - role: '../roles/aliases'
-    - role: '../roles/vim'
-    - role: '../roles/python'
-    - role: '../roles/antigen'
+    - role: git
+    - role: zsh
+    - role: aliases
+    - role: vim
+    - role: python
+    - role: antigen

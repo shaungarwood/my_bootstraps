@@ -1,5 +1,4 @@
 ---
-
 - hosts: localhost
   name: ~~~~~~~~~~ update system/packages ~~~~~~~~~~
   become: yes

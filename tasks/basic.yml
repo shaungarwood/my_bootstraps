@@ -5,7 +5,7 @@
     development_env: false
 
   roles:
-    - role: '../roles/git'
-    - role: '../roles/zsh'
-    - role: '../roles/aliases'
-    - role: '../roles/vim'
+    - role: git
+    - role: zsh
+    - role: aliases
+    - role: vim

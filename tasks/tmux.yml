@@ -3,6 +3,6 @@
   become: no
 
   roles:
-    - role: 'tmux'
+    - role: tmux
       vars:
         install_powerline: true

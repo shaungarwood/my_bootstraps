@@ -3,4 +3,4 @@
   become: no
 
   roles:
-    - role: '../roles/aliases'
+    - role: aliases

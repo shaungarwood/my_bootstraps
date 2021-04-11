@@ -3,5 +3,5 @@
   become: no
 
   roles:
-    - role: '../roles/zsh'
-    - role: '../roles/antigen'
+    - role: zsh
+    - role: antigen

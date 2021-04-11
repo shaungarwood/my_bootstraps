@@ -3,4 +3,4 @@
   tasks:
 
   roles:
-    - role: '../roles/git'
+    - role: git
