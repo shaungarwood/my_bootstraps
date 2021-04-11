@@ -1,0 +1,14 @@
+---
+- name: install powerline (debian)
+  become: yes
+  package:
+    name: powerline
+
+- name: powerline settings in tmux.conf
+  blockinfile:
+    path: "{{ the_user_home }}/.tmux.conf"
+    backup: yes
+    marker: "# ----- {mark} powerline settings -----"
+    block: |
+      # enable the powerline status bar
+      run-shell 'powerline-config tmux setup'

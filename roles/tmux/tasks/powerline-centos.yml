@@ -1,0 +1,25 @@
+---
+- name: check if pyenv pip3 available
+  stat:
+    path: "{{ the_user_home }}/.pyenv/shims/pip3"
+  register: pip3_shim
+
+- name: 
+  include_role:
+    name: python
+  when: not pip3_shim.stat.exists
+
+- name: install powerline with pip (centos)
+  pip:
+    name: powerline-status
+    executable: "{{ the_user_home }}/.pyenv/shims/pip3"
+
+- name: powerline settings in tmux.conf
+  blockinfile:
+    path: "{{ the_user_home }}/.tmux.conf"
+    backup: yes
+    insertafter: '# ansible additions'
+    marker: "# ----- {mark} powerline settings -----"
+    block: |
+      # enable the powerline status bar
+      run-shell 'powerline-config tmux setup'

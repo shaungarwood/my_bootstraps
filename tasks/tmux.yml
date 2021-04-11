@@ -1,0 +1,8 @@
+- name: ~~~~~~~~~~ tmux ~~~~~~~~~~
+  hosts: localhost
+  become: no
+
+  roles:
+    - role: 'tmux'
+      vars:
+        install_powerline: true

@@ -64,3 +64,11 @@
   copy:
     src: ../files/tmux.conf
     dest: "{{ the_user_home }}/.tmux.conf"
+
+- name: install powerline (centos)
+  include_tasks: powerline-centos.yml
+  when: install_powerline and ansible_facts['os_family'] == "RedHat"
+
+- name: install powerline (debian)
+  include_tasks: powerline-debian.yml
+  when: install_powerline and ansible_facts['os_family'] == "Debian"
