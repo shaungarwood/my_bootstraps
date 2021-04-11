@@ -90,3 +90,9 @@ fi
 
 # install needed galaxy roles
 ansible-galaxy install -r ~/my_bootstraps/requirements.yml
+
+# set the ansible config
+cat > ~/.ansible.cfg<< EOF
+[defaults]
+roles_path = ~/my_bootstraps/roles/:~/.ansible/roles/
+EOF
