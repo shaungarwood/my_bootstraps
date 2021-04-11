@@ -1,27 +1,8 @@
 ---
-# install pip if missing
-
-- name: check if pyenv pip3 available
-  stat:
-    path: "{{ the_user_home }}/.pyenv/shims/pip3"
-  register: pip3_shim
-
-- name: Task name
-  debug:
-    msg: "The file or directory exists"
-  when: register_name.stat.exists
-
-- name: install powerline with pip (centos)
-  pip:
-    name: powerline-status
-    executable: "{{ the_user_home }}/.pyenv/shims/pip3"
-  when: ansible_facts['os_family'] == "RedHat"
-
 - name: install powerline (debian)
   become: yes
   package:
     name: powerline
-  when: ansible_facts['os_family'] == "Debian"
 
 - name: powerline settings in tmux.conf
   blockinfile:
