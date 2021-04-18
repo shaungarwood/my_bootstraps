@@ -17,6 +17,7 @@
         antigen_bundles:
           - name: git
           - name: command-not-found
+          - name: vi-mode
           - name: zsh-syntax-highlighting
             url: zsh-users/zsh-syntax-highlighting
           - name: zsh-autoswitch-virtualenv
