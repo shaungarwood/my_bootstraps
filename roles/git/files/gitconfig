@@ -3,6 +3,13 @@
         name = Shaun Garwood
 [alias]
         co = checkout
+        cleanup = "!f(){\
+                git co main && git pull &&\
+                printf 'branches merged you can probably delete (git branch -d):\n' &&\
+                git branch --merged &&\
+                printf 'unmerged branches, do you still need? (git branch -D):\n' &&\
+                git branch --no-merged;\
+                };f"
         ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --date=relative
         wu = "!f(){\
     git branch &&\
