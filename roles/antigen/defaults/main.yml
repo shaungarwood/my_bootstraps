@@ -3,3 +3,4 @@ development_env: true
 the_user: "{{ ansible_user_id }}"
 the_user_home: "{{ ansible_env.HOME }}"
 zsh_theme: "robbyrussell"
+antigen_install_oh_my_zsh: yes
