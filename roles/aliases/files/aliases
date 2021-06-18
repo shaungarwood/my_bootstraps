@@ -27,3 +27,4 @@ alias mitm='mitmproxy --set console_focus_follow=true --set ssl_insecure=true --
 alias p='ping -s -v'
 alias ssh-proxy="ssh -v -4 -D 52804 -N"
 alias sudo='sudo -p "Ah ah ah, didnt say the magic word: "'
+alias v='vim'
