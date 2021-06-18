@@ -33,7 +33,6 @@ filetype plugin on
 
 set ignorecase           " be case insensitive on searches
 set smartcase            " but do be case sensitive on searches with capital letters
-set cryptmethod=blowfish2 " better encryption method
 set splitright            " new vert split window to the right
 set splitbelow            " new horz split window below
 
