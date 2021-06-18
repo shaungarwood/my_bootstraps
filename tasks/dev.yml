@@ -10,3 +10,4 @@
     - role: aliases
     - role: python
     - role: vim
+    - role: nvim
