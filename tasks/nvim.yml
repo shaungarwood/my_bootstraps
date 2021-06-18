@@ -1,0 +1,5 @@
+- name: ~~~~~~~~~~ set up nvim for user ~~~~~~~~~~
+  hosts: localhost
+
+  roles:
+    - role: nvim

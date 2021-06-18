@@ -7,5 +7,6 @@
     - role: zsh
     - role: aliases
     - role: vim
+    - role: nvim
     - role: python
     - role: antigen

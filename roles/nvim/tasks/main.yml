@@ -1,0 +1,42 @@
+---
+- name: ensure nvim is installed
+  become: yes
+  package:
+    name: neovim
+    state: present
+
+- name: make nvim directory
+  become: false
+  file:
+    path: "{{ the_user_home }}/.config/nvim"
+    state: directory
+
+- name: copy nvim init to user home dir
+  become: no
+  copy:
+    src: ../files/init.vim
+    dest: "{{ the_user_home }}/.config/nvim/init.vim"
+    mode: 0664
+    backup: yes
+
+- name: vim->nvim alias
+  blockinfile:
+    path: "{{ the_user_home }}/.aliases"
+    backup: yes
+    insertafter: '# ansible (nvim) addition'
+    marker: "# ----- {mark} -----"
+    block: "alias vim=nvim"
+
+- name: make nvim default editor (bash)
+  become: no
+  lineinfile:
+    path: "{{ the_user_home }}/.bashrc"
+    line: "export EDITOR=nvim"
+  when: ansible_env['SHELL'] is search("bash")
+
+- name: make nvim default editor (zsh)
+  become: no
+  lineinfile:
+    path: "{{ the_user_home }}/.zshrc"
+    line: "export EDITOR=nvim"
+  when: ansible_env['SHELL'] is search("zsh")
