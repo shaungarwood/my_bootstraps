@@ -20,6 +20,7 @@
       - nmap
       - traceroute
       - net-tools
+      - bind-utils
 
 - name: distribution specific packages (debian/ubuntu)
   become: yes
