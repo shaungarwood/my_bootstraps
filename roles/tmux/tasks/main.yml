@@ -72,3 +72,25 @@
 - name: install powerline (debian)
   include_tasks: powerline-debian.yml
   when: install_powerline and ansible_facts['os_family'] == "Debian"
+
+- name: check if antigen is installed
+  stat:
+    path: "{{ the_user_home }}/.antigen/bin/antigen.zsh"
+  register: antigen_bin
+
+- name: end playbook if antigen bin not found
+  meta: end_play
+  when: not antigen_bin.stat.exists
+
+- name: install tmux zsh plugin
+  command: "antigen bundle tmux && antigen apply"
+
+- name: update zshrc to autostart tmux
+  blockinfile:
+    path: "{{ the_user_home }}/.zshrc"
+    backup: yes
+    insertbefore: BOF
+    marker: "# ----- {mark} tmux plugin -----"
+    block: |
+      ZSH_TMUX_AUTOSTART=true
+      ~/.pyenv/shims/powerline-config tmux setup
