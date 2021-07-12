@@ -17,7 +17,7 @@
     marker: "\" ----- {mark} plugin specific settings -----"
     block: |
       " nerdtree keymap for ctrl-n
-      map <C-n> :NERDTreeToggle<CR>
+      map <C-e> :NERDTreeToggle<CR>
 
       " syntastic settings
       set statusline+=%#warningmsg#
