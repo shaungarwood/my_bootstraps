@@ -20,13 +20,13 @@
       - nmap
       - traceroute
       - net-tools
-      - bind-utils
 
 - name: distribution specific packages (debian/ubuntu)
   become: yes
   package:
     name:
       - ack-grep
+      - bind9-utils
   when: ansible_facts['os_family'] == "Debian"
 
 - name: distribution specific packages (centos/redhat)
@@ -34,4 +34,5 @@
   package:
     name:
       - ack
+      - bind-utils
   when: ansible_facts['os_family'] == "RedHat"
