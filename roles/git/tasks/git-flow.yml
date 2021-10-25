@@ -13,6 +13,6 @@
 
 - name: install git-flow for Debian
   become: yes
-  yum:
+  package:
     name: git-flow
   when: ansible_facts['os_family'] == "Debian"
