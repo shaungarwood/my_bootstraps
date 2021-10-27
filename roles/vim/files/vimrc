@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'pbrisbin/vim-mkdir'
+Plugin 'stephpy/vim-yaml'
 
 " end vundle plugins
 call vundle#end()            " required
